@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Noto Sans KR', 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .slide {
+            width: 1680px;
+            min-height: 720px;
+            position: relative;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            display: flex;
+            flex-direction: column;
+            margin: 20px 0;
+        }
+        .header {
+            background: #005b96;
+            color: white;
+            padding: 20px 30px;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .title {
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+        .authors {
+            font-size: 15px;
+            margin-bottom: 4px;
+        }
+        .journal {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        .summary-container {
+            background: #f0f5fa;
+            padding: 12px 30px;
+            border-bottom: 1px solid #e1e5e8;
+            max-width: 100%;
+        }
+        .summary-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #005b96;
+        }
+        .summary {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 15px;
+            padding: 15px;
+            flex: 1;
+        }
+        .section {
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            max-height: 320px;
+            overflow-y: auto;
+        }
+        .section-title {
+            color: #005b96;
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #005b96;
+        }
+        .section-content {
+            font-size: 13px;
+            line-height: 1.6;
+            overflow-y: visible;
+        }
+        .term {
+            font-weight: bold;
+            color: #005b96;
+        }
+        .bullet {
+            margin-left: 8px;
+            text-indent: -8px;
+            padding-left: 8px;
+            margin-bottom: 6px;
+        }
+        .bullet:before {
+            content: "\2022 ";
+            color: #005b96;
+        }
+        .eng {
+            color: #666;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="slide">
+        <div class="header">
+            <div class="title">Assembly dynamics of a large space modular satellite antenna</div>
+            <div class="authors">Ke Li, Qiang Tian, Junwei Shi, Dali Liu</div>
+            <div class="journal">Mechanism and Machine Theory, Vol. 142, 2019, pp. 103601</div>
+        </div>
+
+        <div class="summary-container">
+            <div class="summary-title">논문 요약</div>
+            <div class="summary">
+                본 논문은 대형 우주 모듈형 위성 안테나의 조립 동역학을 효율적으로 계산하기 위한 새로운 방법론을 제안하며, <span class="term">입자 군집 최적화 (PSO, Particle Swarm Optimization)</span> 알고리즘을 기반으로 하여 위성의 자세 교란을 최소화하는 조립 경로를 탐색합니다. 강체는 <span class="term">자연 좌표 형식 (NCF, Natural Coordinate Formulation)</span>, 유연체는 <span class="term">절대 절점 좌표 형식 (ANCF, Absolute Nodal Coordinate Formulation)</span>으로 모델링되며, 충돌 방지를 위한 <span class="term">OBB</span> 기법이 통합됩니다.
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="section">
+                <div class="section-title">Introduction: 연구 동기</div>
+                <div class="section-content">
+                    <div class="bullet">우주 망원경, 위성 안테나, 우주정거장 등의 대형 구조물 수요 증가</div>
+                    <div class="bullet">정밀하고 위험한 임무에 있어 인간 조립 방식의 한계</div>
+                    <div class="bullet">자율 조립 기술을 통한 효율성, 안전성, 정확성 향상</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Related Works: 관련 연구</div>
+                <div class="section-content">
+                    <div class="bullet">ETS-VII, DARPA Phoenix, iBOSS 등 자율 조립 기술 사례</div>
+                    <div class="bullet">기존 연구는 대부분 강체 기반 동역학 모델에 국한</div>
+                    <div class="bullet">유연체 고려 및 충돌 회피가 부족한 기존 방법들의 한계</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Method: 새로운 접근 방법</div>
+                <div class="section-content">
+                    <div class="bullet">NCF와 ANCF를 결합한 강-유연체 모델링</div>
+                    <div class="bullet">조립 로봇의 관절 각도 최적화를 위한 LHS-PSO 기법</div>
+                    <div class="bullet">충돌 감지를 위한 OBB 기법 통합</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Experiment: 실험 방법과 결과</div>
+                <div class="section-content">
+                    <div class="bullet">7자유도 조립 매니퓰레이터의 다단계 조립 시나리오 시뮬레이션</div>
+                    <div class="bullet">관절 궤적 최적화 결과 ADAMS 시뮬레이션과 정합</div>
+                    <div class="bullet">위성 자세 교란이 거의 초기 상태로 복귀함을 확인</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Discussion: 결과의 해석</div>
+                <div class="section-content">
+                    <div class="bullet">유연체 고려가 조립 동역학에 실질적 영향</div>
+                    <div class="bullet">OBB와 LHS-PSO의 결합이 충돌 회피와 빠른 수렴에 기여</div>
+                    <div class="bullet">관절 궤적 제어만으로 위성 자세 안정화 가능성 제시</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Conclusion: 최종 요약</div>
+                <div class="section-content">
+                    <div class="bullet">강-유연체 모델 기반 조립 동역학 계산법 제안</div>
+                    <div class="bullet">PSO-LHS 알고리즘을 통한 최적 조립 경로 설계</div>
+                    <div class="bullet">위성 자세 교란 최소화 및 충돌 회피 성능 입증</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
